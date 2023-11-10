@@ -1,7 +1,19 @@
 public class Queue<T> {
     private QueueNode<T> firstNode;
     private QueueNode<T> lastNode;
-    private int size;
+    private int size = 0;
+
+    void enqueue(T element){
+        QueueNode<T> addedNode = new QueueNode<>(element);
+        if (size == 0){
+            firstNode = addedNode;
+        }
+        else {
+            lastNode.setChildNode(addedNode);
+            lastNode = addedNode;
+        }
+        size++;
+    }    //add an element
 
     T dequeue(){
         QueueNode<T> deletedNode = firstNode;
