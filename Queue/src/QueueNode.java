@@ -1,20 +1,20 @@
 public class QueueNode<T> {
-    private QueueNode<T> parentNode;
+    private QueueNode<T> childNode;
     private T value;
 
     public QueueNode() {          //Default constructor
-        parentNode = null;
+        childNode = null;
         value = null;
     }
 
     public QueueNode(T value) {  //Constructor for data input only
         this.value = value;
-        parentNode = null;
+        childNode = null;
     }
 
-    public QueueNode(T value, QueueNode<T> parentNode) {  //Constructor for data and node input
+    public QueueNode(T value, QueueNode<T> childNode) {  //Constructor for data and node input
         this.value = value;
-        this.parentNode = parentNode;
+        this.childNode = childNode;
     }
 
     //Setters and getters for the node class
@@ -26,12 +26,12 @@ public class QueueNode<T> {
         return value;
     }
 
-    public void setParentNode(QueueNode<T> parentNode) {
-        this.parentNode = parentNode;
+    public void setChildNode(QueueNode<T> childNode) {
+        this.childNode = childNode;
     }
 
-    public QueueNode<T> getParentNode() {
-        return parentNode;
+    public QueueNode<T> getChildNode() {
+        return childNode;
     }
 
     //toString and equals methods (Overrides)
