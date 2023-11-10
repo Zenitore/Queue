@@ -3,6 +3,13 @@ public class Queue<T> {
     private QueueNode<T> lastNode;
     private int size;
 
+    boolean isEmpty(){
+        if (size == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     int size(){return size;}
 
