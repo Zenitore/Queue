@@ -1,6 +1,6 @@
 public class Queue<T> {
-    private QueueNode<T> firstNode;
-    private QueueNode<T> lastNode;
+    private QueueNode<T> firstNode = new QueueNode<>();
+    private QueueNode<T> lastNode = new QueueNode<>();
     private int size = 0;
 
     void enqueue(T element){
@@ -9,15 +9,27 @@ public class Queue<T> {
             firstNode = addedNode;
         }
         else {
-            lastNode.setChildNode(addedNode);
-            lastNode = addedNode;
+            if(size == 1){
+                firstNode.setChildNode(addedNode);
+                lastNode = addedNode;
+            }else{
+                lastNode.setChildNode(addedNode);
+                lastNode = addedNode;
+            }
         }
         size++;
     }    //add an element
 
     T dequeue(){
         QueueNode<T> deletedNode = firstNode;
-        firstNode = firstNode.getChildNode();
+        if(!isEmpty()) {
+            if (size == 1) {
+                size--;
+            } else {
+                firstNode = firstNode.getChildNode();
+                size--;
+            }
+        }
         return deletedNode.getValue();
     }                //remove and return the least recent element
 
